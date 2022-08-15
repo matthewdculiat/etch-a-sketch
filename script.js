@@ -11,18 +11,17 @@ function makeGrid(rows, cols) {
 
     const gridItems = document.querySelectorAll(".grid-item");
     gridItems.forEach((gridItem) => {
+        let val = 255;
+        gridItem.style.backgroundColor = `rgb(${val}, ${val}, ${val})`;
         gridItem.addEventListener('mouseover', e => {
-            e.target.style.backgroundColor = setBg();
+            val -= 25.5
+            strVal = Math.floor(val).toString(16);
+            e.target.style.backgroundColor = "#" + strVal + strVal + strVal; 
         });
     });
 };
 
 makeGrid(16,16);
-
-const setBg = () => {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    return "#" + randomColor;
-};
 
 const divBtn = document.createElement("div");
 divBtn.className = "button";
